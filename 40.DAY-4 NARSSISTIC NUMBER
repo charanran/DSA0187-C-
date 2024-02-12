@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int countDigits(int n) {
+    int count = 0;
+    while (n != 0) {
+        n /= 10;
+        ++count;
+    }
+    return count;
+}
+bool isNarcissistic(int n) {
+    int originalNumber = n;
+    int numDigits = countDigits(n);
+    int sum = 0;
+    while (n != 0) {
+        int digit = n % 10;
+        sum += pow(digit, numDigits);
+        n /= 10;
+    }
+
+    return sum == originalNumber;
+}
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+    if (isNarcissistic(num)) {
+        cout << num << " is a narcissistic number." << endl;
+    } else {
+        cout << num << " is not a narcissistic number." << endl;
+    }
+    return 0;
+}
