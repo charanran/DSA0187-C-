@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+int main() {
+    int arr[50], p, t, i;
+    cout << "Enter the size of the array: " << endl;
+    cin >> t;
+    cout << "Enter array elements: " << endl;
+    for(i = 0; i < t; i++)
+        cin >> arr[i];
+    cout << "Enter the position of the element to delete: " << endl;
+    cin >> p;
+    for(i = p; i < t - 1; i++)
+        arr[i] = arr[i + 1];
+    t--;
+    cout << "The new array is: " << endl;
+    for(i = 0; i < t; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+    return 0;
+}
